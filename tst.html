@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seção com Animações</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1200px;
+      height: 80vh;
+    }
+
+    .box {
+      flex: 1;
+      margin: 5px;
+      background: #222;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Efeito hover */
+    .box:hover {
+      transform: scale(1.1);
+      z-index: 5;
+    }
+
+    .container:hover .box:not(:hover) {
+      filter: blur(4px) brightness(0.6);
+      transform: scale(0.95);
+    }
+
+    /* Mobile - empilhar */
+    @media (max-width: 409px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+        align-items: stretch; /* faz os quadrados ocuparem toda a largura */
+      }
+      .box {
+        height: 600px;
+        width: 100%; /* garante que ocupem toda a largura no mobile */
+      }
+    }
+
+    /* Cores diferentes só pra visualizar */
+    .box:nth-child(1) { background: #3b82f6; }
+    .box:nth-child(2) { background: #10b981; }
+    .box:nth-child(3) { background: #f59e0b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+</body>
+</html>
